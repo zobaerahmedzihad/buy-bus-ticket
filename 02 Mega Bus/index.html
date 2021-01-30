@@ -133,6 +133,15 @@
             document.getElementById("ticket-total").innerText = "$ " +
                 ticketTotal;
         })
+        document.getElementById("ticket-decrease").addEventListener("click", function() {
+            const ticketInput = document.getElementById("ticket-count");
+            const ticketCount = parseInt(ticketInput.value);
+            const ticketNewCount = ticketCount - 1;
+            ticketInput.value = ticketNewCount;
+            const ticketTotal = ticketNewCount * 150;
+            document.getElementById("ticket-total").innerText = "$ " +
+                ticketTotal;
+        })
     </script>
 </body>
 
