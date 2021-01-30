@@ -73,8 +73,9 @@
                     <div class="plus-minus-btn ">
 
                         <!-- First +-button (delete) -->
-                        <button id="ticket-increase" class=" none btn btn-default"><i class="fas fa-plus"></i></button>
-                        <button id="ticket-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+
+                        <button onclick="handleTicketChange(true)" class=" none btn btn-default"><i class="fas fa-plus"></i></button>
+                        <button onclick="handleTicketChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
 
                     </div>
                 </div>
@@ -124,14 +125,6 @@
 
     <!--Thank You-->
     <script>
-        document.getElementById("ticket-increase").addEventListener("click", function() {
-            handleTicketChange(true);
-        });
-
-        document.getElementById("ticket-decrease").addEventListener("click", function() {
-            handleTicketChange(false);
-        });
-
         function handleTicketChange(isIncrease) {
             const ticketInput = document.getElementById("ticket-count");
             const ticketCount = parseInt(ticketInput.value);
