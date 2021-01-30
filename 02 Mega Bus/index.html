@@ -68,25 +68,23 @@
                 <div class="input-group f-class ">
                     <div>
                         <label for=" ">First Class <span id="ticket-total">$ 150</span></label>
-                        <input id="ticket-count" class="inp-style inp-width " type="number " name=" ">
+                        <input id="ticket-count" class="inp-style inp-width " type="number " value="0">
                     </div>
                     <div class="plus-minus-btn ">
 
-                        <!-- First +-button (delete) -->
-
-                        <button onclick="handleTicketChange(true)" class=" none btn btn-default"><i class="fas fa-plus"></i></button>
-                        <button onclick="handleTicketChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        <button onclick="handleTicketChange(true)" class=" border-style btn btn-default"><i class="fas fa-plus"></i></button>
+                        <button onclick="handleTicketChange(false)" class=" border-style btn btn-default"><i class="fas fa-minus"></i></button>
 
                     </div>
                 </div>
                 <div class="input-group f-class ">
                     <div>
                         <label for=" ">Economy <span id="economyTicket-total">$ 100</span></label>
-                        <input id="economyTicket-count" class="inp-style inp-width " type="number " name=" ">
+                        <input id="economyTicket-count" class="inp-style inp-width " type="number " value="0">
                     </div>
                     <div class="plus-minus-btn ">
-                        <button onclick="handleEconomyTicketChange(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                        <button onclick="handleEconomyTicketChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        <button onclick="handleEconomyTicketChange(true)" class="border-style btn btn-default"><i class="fas fa-plus"></i></button>
+                        <button onclick="handleEconomyTicketChange(false)" class="border-style btn btn-default"><i class="fas fa-minus"></i></button>
                     </div>
                 </div>
 
@@ -97,7 +95,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right ">
-                        <p>$500</p>
+                        <p><span id="total-amount">$00</span></p>
                     </div>
                 </div>
 
@@ -140,7 +138,7 @@
             const ticketTotal = ticketNewCount * 150;
             document.getElementById("ticket-total").innerText = "$ " +
                 ticketTotal;
-
+            calculateTotal();
         }
 
 
@@ -160,6 +158,18 @@
             const economyTicketTotal = economyTicketNewCount * 100;
             document.getElementById("economyTicket-total").innerText = "$ " +
                 economyTicketTotal;
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const economyTicketInput = document.getElementById('economyTicket-count');
+            const economyTicketCount = parseInt(economyTicketInput.value);
+
+            const ticketInput = document.getElementById('ticket-count');
+            const ticketCount = parseInt(ticketInput.value);
+
+            const totalAmount = economyTicketCount * 100 + ticketCount * 150;
+            document.getElementById('total-amount').innerText = "$ " + totalAmount;
 
         }
     </script>
