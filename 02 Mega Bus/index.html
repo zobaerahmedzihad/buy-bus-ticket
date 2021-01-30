@@ -125,23 +125,48 @@
     <!--Thank You-->
     <script>
         document.getElementById("ticket-increase").addEventListener("click", function() {
-            const ticketInput = document.getElementById("ticket-count");
-            const ticketCount = parseInt(ticketInput.value);
-            const ticketNewCount = ticketCount + 1;
-            ticketInput.value = ticketNewCount;
-            const ticketTotal = ticketNewCount * 150;
-            document.getElementById("ticket-total").innerText = "$ " +
-                ticketTotal;
-        })
+            handleTicketChange(true);
+        });
+
         document.getElementById("ticket-decrease").addEventListener("click", function() {
+            handleTicketChange(false);
+        });
+
+        function handleTicketChange(isIncrease) {
             const ticketInput = document.getElementById("ticket-count");
             const ticketCount = parseInt(ticketInput.value);
-            const ticketNewCount = ticketCount - 1;
+
+            let ticketNewCount = ticketCount;
+            if (isIncrease == true) {
+                ticketNewCount = ticketCount + 1;
+            }
+            if (isIncrease == false && ticketCount > 0) {
+                ticketNewCount = ticketCount - 1;
+            }
             ticketInput.value = ticketNewCount;
             const ticketTotal = ticketNewCount * 150;
             document.getElementById("ticket-total").innerText = "$ " +
                 ticketTotal;
-        })
+
+        }
+        // document.getElementById("ticket-increase").addEventListener("click", function() {
+        //     const ticketInput = document.getElementById("ticket-count");
+        //     const ticketCount = parseInt(ticketInput.value);
+        //     const ticketNewCount = ticketCount + 1;
+        //     ticketInput.value = ticketNewCount;
+        //     const ticketTotal = ticketNewCount * 150;
+        //     document.getElementById("ticket-total").innerText = "$ " +
+        //         ticketTotal;
+        // })
+        // document.getElementById("ticket-decrease").addEventListener("click", function() {
+        //     const ticketInput = document.getElementById("ticket-count");
+        //     const ticketCount = parseInt(ticketInput.value);
+        //     const ticketNewCount = ticketCount - 1;
+        //     ticketInput.value = ticketNewCount;
+        //     const ticketTotal = ticketNewCount * 150;
+        //     document.getElementById("ticket-total").innerText = "$ " +
+        //         ticketTotal;
+        // })
     </script>
 </body>
 
